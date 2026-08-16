@@ -216,17 +216,17 @@ function App() {
 
             <div>
               <h1 className="text-4xl font-black tracking-tight">
-                CacheViz
+                CacheFlow
               </h1>
 
               <p className="mt-2 text-slate-500">
-                High-Performance LRU Cache Visualizer
+                High-Performance LRU Cache Visualizer & Server
               </p>
             </div>
 
-            <div className="hidden rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm text-emerald-400 md:block">
+            {/* <div className="hidden rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm text-emerald-400 md:block">
               ● Backend Connected
-            </div>
+            </div> */}
 
           </div>
 

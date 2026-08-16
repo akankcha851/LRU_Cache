@@ -63,30 +63,30 @@ function ControlPanel({
 
       <div className="mt-5 flex flex-wrap gap-3">
         <button
-          onClick={handlePut}
-          className="rounded-lg bg-blue-600 px-5 py-3 font-semibold text-white transition hover:bg-blue-500"
+            onClick={handlePut}
+            className="rounded-lg bg-purple-600 px-5 py-3 font-semibold text-white transition hover:bg-purple-500"
         >
-          PUT
+        PUT
         </button>
 
         <button
-          onClick={handleGet}
-          className="rounded-lg bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-500"
+            onClick={handleGet}
+            className="rounded-lg bg-cyan-600 px-5 py-3 font-semibold text-white transition hover:bg-cyan-500"
         >
-          GET
+        GET
+        </button>
+
+        <button 
+            onClick={handleDelete} className="rounded-lg bg-red-600 px-5 py-3 font-semibold text-white transition hover:bg-red-500"     
+        > 
+        DELETE 
         </button>
 
         <button
-          onClick={handleDelete}
-          className="rounded-lg bg-red-600 px-5 py-3 font-semibold text-white transition hover:bg-red-500"
+            onClick={onClear}
+            className="rounded-lg bg-slate-700 px-5 py-3 font-semibold text-white transition hover:bg-slate-600"
         >
-          DELETE
-        </button>
-        <button
-          onClick={onClear}
-          className="rounded-lg border border-slate-700 bg-slate-900 px-5 py-3 font-semibold text-slate-300 transition hover:border-red-500 hover:text-red-400"
-        >
-            CLEAR CACHE
+        CLEAR CACHE
         </button>
       </div>
     </div>
