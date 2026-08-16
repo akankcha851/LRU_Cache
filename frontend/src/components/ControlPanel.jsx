@@ -4,6 +4,7 @@ function ControlPanel({
   onPut,
   onGet,
   onDelete,
+  onClear,
 }) {
   const [key, setKey] = useState("");
   const [value, setValue] = useState("");
@@ -80,6 +81,12 @@ function ControlPanel({
           className="rounded-lg bg-red-600 px-5 py-3 font-semibold text-white transition hover:bg-red-500"
         >
           DELETE
+        </button>
+        <button
+          onClick={onClear}
+          className="rounded-lg border border-slate-700 bg-slate-900 px-5 py-3 font-semibold text-slate-300 transition hover:border-red-500 hover:text-red-400"
+        >
+            CLEAR CACHE
         </button>
       </div>
     </div>

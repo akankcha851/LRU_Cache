@@ -1,46 +1,56 @@
 import { motion } from "framer-motion";
 
-function CacheNode({ item, index }) {
+function CacheNode({ item, index, total }) {
+  const isMRU = index === 0;
+  const isLRU = index === total - 1;
+
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: 0.25 }}
+      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.8, y: -20 }}
+      transition={{ duration: 0.3 }}
       className="flex items-center"
     >
-      <div className="w-36 rounded-xl border border-slate-700 bg-slate-900 p-4 shadow-lg">
-        <div className="mb-2 flex items-center justify-between">
-          <span className="text-xs font-semibold text-slate-400">
-            {item.position}
-          </span>
-
-          {index === 0 && (
-            <span className="rounded-full bg-green-500/20 px-2 py-1 text-xs text-green-400">
+      <div className="relative w-40 rounded-2xl border border-slate-700 bg-slate-900 p-5 shadow-xl">
+        
+        <div className="absolute -top-3 left-4">
+          {isMRU && (
+            <span className="rounded-full bg-emerald-500 px-3 py-1 text-xs font-bold text-white">
               MRU
             </span>
           )}
 
-          {index !== 0 && index === -1 && (
-            <span className="rounded-full bg-red-500/20 px-2 py-1 text-xs text-red-400">
+          {isLRU && !isMRU && (
+            <span className="rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white">
               LRU
             </span>
           )}
         </div>
 
-        <div className="text-lg font-bold text-white">
+        <div className="mt-3 text-xs uppercase tracking-wider text-slate-500">
+          Cache Entry
+        </div>
+
+        <div className="mt-2 text-2xl font-bold text-white">
           {item.key}
         </div>
 
-        <div className="mt-1 text-sm text-slate-400">
+        <div className="mt-1 break-all text-sm text-slate-400">
           {item.value}
         </div>
       </div>
 
-      <div className="px-3 text-xl text-slate-500">
-        →
-      </div>
+      {!isLRU && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="px-4 text-2xl text-slate-600"
+        >
+          →
+        </motion.div>
+      )}
     </motion.div>
   );
 }
