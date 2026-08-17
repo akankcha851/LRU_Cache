@@ -3,6 +3,7 @@
 #include "crow.h"
 #include "crow/middlewares/cors.h"
 #include "nlohmann/json.hpp"
+#include <cstdlib>
 
 using json = nlohmann::json;
 
@@ -189,7 +190,12 @@ int main() {
         return crow::response(response.dump());
     });
 
-    app.port(18080)
-       .multithreaded()
-       .run();
-}
+    const char* portEnv = std::getenv("PORT");
+
+    int port = portEnv ? std::stoi(portEnv) : 18080;
+
+    app.bindaddr("0.0.0.0")
+        .port(port)
+        .multithreaded()
+        .run();
+    }
