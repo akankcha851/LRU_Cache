@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:18080",
+  baseURL: "https://lru-cache-backend-mkg9.onrender.com",
   headers: {
     "Content-Type": "application/json",
   },
