@@ -5,8 +5,8 @@ project(CacheBackend)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Crow REQUIRED)
-find_package(nlohmann_json REQUIRED)
+find_package(Crow CONFIG REQUIRED)
+find_package(nlohmann_json CONFIG REQUIRED)
 
 include_directories(include)
 
