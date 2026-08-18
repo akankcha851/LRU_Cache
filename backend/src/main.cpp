@@ -14,6 +14,7 @@ int main() {
 
     cors.global()
         .origin("http://localhost:5173")
+        .origin("https://lru-cache-phi.vercel.app")
         .methods(
             crow::HTTPMethod::GET,
             crow::HTTPMethod::POST,
